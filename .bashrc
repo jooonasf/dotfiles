@@ -11,7 +11,7 @@ alias rot13='tr "a-zA-Z" "n-za-mN-ZA-M"'
 git_branch() {
     test -d .git || return 1
 
-    echo "($(git rev-parse --abbrev-ref HEAD))"
+    echo " ($(git rev-parse --abbrev-ref HEAD))"
 }
 
 pwd_short() {
@@ -21,7 +21,7 @@ pwd_short() {
 prompt() {
     unset PROMPT_COMMAND
 
-    PS1='\u@\h:$(pwd_short) $(git_branch) $ '
+    PS1='\u@\h:$(pwd_short)$(git_branch) $ '
 }
 
 test -n "$PS1" && prompt
